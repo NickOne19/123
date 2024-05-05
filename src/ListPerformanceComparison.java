@@ -2,10 +2,27 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Класс {@code ListPerformanceComparison} предназначен для сравнения
+ * производительности двух типов списков: {@link ArrayList} и {@link LinkedList}.
+ *
+ * @author [Zemlyanukhin]
+ * @version 1.0
+ */
 public class ListPerformanceComparison {
 
+    /**
+     * Количество итераций для тестирования производительности.
+     */
     private static final int ITERATIONS = 10000;
 
+    /**
+     * Сравнивает производительность {@code ArrayList} и {@code LinkedList}
+     * для операций добавления, удаления и получения элементов.
+     *
+     * Результаты выводятся в виде таблицы с указанием времени выполнения
+     * каждой операции в миллисекундах.
+     */
     public static void comparePerformance() {
         List<Integer> arrayList = new ArrayList<>();
         List<Integer> linkedList = new LinkedList<>();
@@ -52,6 +69,12 @@ public class ListPerformanceComparison {
         System.out.println("remove (индекс)\t" + (endTime - startTime) + "\t\t" + testRemoveByIndex(linkedList));
     }
 
+    /**
+     * Тестирует добавление элементов в конец списка.
+     *
+     * @param list Список, в который добавляются элементы.
+     * @return Время выполнения операции в миллисекундах.
+     */
     private static long testAddEnd(List<Integer> list) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < ITERATIONS; i++) {
@@ -61,6 +84,12 @@ public class ListPerformanceComparison {
         return endTime - startTime;
     }
 
+    /**
+     * Тестирует добавление элементов в начало списка.
+     *
+     * @param list Список, в который добавляются элементы.
+     * @return Время выполнения операции в миллисекундах.
+     */
     private static long testAddBeginning(List<Integer> list) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < ITERATIONS; i++) {
@@ -70,6 +99,12 @@ public class ListPerformanceComparison {
         return endTime - startTime;
     }
 
+    /**
+     * Тестирует получение элемента по индексу.
+     *
+     * @param list Список, из которого получают элемент.
+     * @return Время выполнения операции в миллисекундах.
+     */
     private static long testGet(List<Integer> list) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < ITERATIONS; i++) {
@@ -79,6 +114,12 @@ public class ListPerformanceComparison {
         return endTime - startTime;
     }
 
+    /**
+     * Тестирует удаление элемента по индексу.
+     *
+     * @param list Список, из которого удаляется элемент.
+     * @return Время выполнения операции в миллисекундах.
+     */
     private static long testRemoveByIndex(List<Integer> list) {
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < ITERATIONS; i++) {
